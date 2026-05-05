@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const hash = window.location.hash.slice(1);
         const targetSection = sections.find(s => s.id === hash) || sections[0];
         if (targetSection) renderContent(targetSection.id);
+
+        // Log sections for debugging
+        console.log('Sections loaded:', sections.map(s => ({ id: s.id, title: s.title, isOverview: s.title === 'Overview' })));
     }
 
     function renderSidebar(filterText = '') {
@@ -133,9 +136,16 @@ document.addEventListener('DOMContentLoaded', () => {
             link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
 
-        // Overview renders as a dynamic table of contents
-        if (section.isOverview) {
-            contentContainer.innerHTML = buildOverviewHTML();
+        // Overview = first section whose content is basically empty (just the doc title)
+        const isOverview = section.title === 'Overview';
+
+        if (isOverview) {
+            try {
+                contentContainer.innerHTML = buildOverviewHTML();
+            } catch(e) {
+                console.error('buildOverviewHTML error:', e);
+                contentContainer.innerHTML = '<p style="color:red">Error rendering overview: ' + e.message + '</p>';
+            }
         } else {
             contentContainer.innerHTML = marked.parse(section.content);
         }
@@ -146,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Dynamic Overview / Table of Contents ────────────────────────────────
 
     function buildOverviewHTML() {
-        const nonOverview = sections.filter(s => !s.isOverview);
+        const nonOverview = sections.filter(s => s.title !== 'Overview');
 
         const intro       = nonOverview.filter(s => /^introduction$/i.test(s.title));
         const toc         = nonOverview.filter(s => /table of contents/i.test(s.title));
@@ -177,16 +187,23 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="ov-hero">
             <div class="ov-hero-icon">📚</div>
             <h1 class="ov-hero-title">MiniRAG Course Notes</h1>
-            <p class="ov-hero-sub">A comprehensive, interactive knowledge base covering RAG systems from fundamentals to production-ready deployment.</p>
+            <p class="ov-hero-sub">A comprehensive, interactive knowledge base covering RAG systems — from fundamentals to production-ready deployment.</p>
+
+            <div class="ov-credits">
+                <span>Based on the <a href="https://github.com/bakrianoo/mini-rag" target="_blank"><strong>MiniRAG Course</strong></a> by <strong>Abu Bakr Soliman</strong></span>
+                <span class="ov-credits-sep">·</span>
+                <span>Notes prepared by <a href="https://github.com/ahmedamen1" target="_blank"><strong>Ahmed Amin</strong></a> — Zewail City University</span>
+            </div>
+
             <div class="ov-stats">
                 <div class="ov-stat"><span class="ov-stat-n">${videos.length}</span><span class="ov-stat-l">Course Videos</span></div>
                 <div class="ov-stat"><span class="ov-stat-n">${advanced.length}</span><span class="ov-stat-l">Advanced Topics</span></div>
                 <div class="ov-stat"><span class="ov-stat-n">${sections.length - 1}</span><span class="ov-stat-l">Total Sections</span></div>
             </div>
             <div class="ov-quick">
-                <a href="#${videos[0]?.id || ''}" class="ov-btn ov-btn-primary">🎬 Start from Video 1</a>
-                <a href="#${advanced[0]?.id || ''}" class="ov-btn ov-btn-secondary">🧠 Jump to Advanced Topics</a>
-                ${cheatsheet[0] ? `<a href="#${cheatsheet[0].id}" class="ov-btn ov-btn-green">✅ Production Cheatsheet</a>` : ''}
+                <a href="#${videos[0]?.id || ''}" class="ov-btn ov-btn-video">🎬 Start from Video 1</a>
+                <a href="#${advanced[0]?.id || ''}" class="ov-btn ov-btn-advanced">🧠 Advanced Topics</a>
+                ${cheatsheet[0] ? `<a href="#${cheatsheet[0].id}" class="ov-btn ov-btn-cheatsheet">✅ Production Cheatsheet</a>` : ''}
             </div>
         </div>
 

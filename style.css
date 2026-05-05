@@ -223,6 +223,20 @@ body {
     text-decoration: none;
 }
 
+/* Override link color for overview buttons — must beat #content-container a specificity */
+#content-container a.ov-btn-video,
+#content-container a.ov-btn-video:hover {
+    color: #ffffff;
+}
+#content-container a.ov-btn-advanced,
+#content-container a.ov-btn-advanced:hover {
+    color: #ffffff;
+}
+#content-container a.ov-btn-cheatsheet,
+#content-container a.ov-btn-cheatsheet:hover {
+    color: #ffffff;
+}
+
 #content-container a:hover {
     text-decoration: underline;
 }
@@ -359,13 +373,15 @@ body {
 ═══════════════════════════════════════════ */
 
 .ov-hero {
-    background: linear-gradient(135deg, #eef4ff 0%, #f0fdf4 100%);
+    background: #ffffff;
     border: 1px solid #d0d7de;
+    border-top: 4px solid var(--accent);
     border-radius: 16px;
     padding: 48px 40px 36px;
     text-align: center;
     margin-bottom: 48px;
     animation: fadeIn 0.4s ease-out;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 .ov-hero-icon { font-size: 3rem; margin-bottom: 12px; }
 .ov-hero-title {
@@ -374,8 +390,31 @@ body {
 }
 .ov-hero-sub {
     font-size: 1.05rem; color: var(--text-muted);
-    max-width: 580px; margin: 0 auto 28px; line-height: 1.7;
+    max-width: 580px; margin: 0 auto 20px; line-height: 1.7;
 }
+
+/* Attribution credits */
+.ov-credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    padding: 10px 16px;
+    background: #f6f8fa;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28px;
+}
+.ov-credits a { color: var(--accent); text-decoration: none; }
+.ov-credits a:hover { text-decoration: underline; }
+.ov-credits-sep { color: #aaa; font-size: 1.1rem; }
 .ov-stats { display: flex; justify-content: center; gap: 32px; margin-bottom: 28px; }
 .ov-stat { display: flex; flex-direction: column; align-items: center; }
 .ov-stat-n { font-size: 2rem; font-weight: 800; color: var(--accent); line-height: 1; }
@@ -386,20 +425,48 @@ body {
 .ov-quick { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
 .ov-btn {
     display: inline-flex; align-items: center; gap: 6px;
-    padding: 10px 20px; border-radius: 8px; font-size: 0.9rem;
+    padding: 11px 22px; border-radius: 8px; font-size: 0.92rem;
     font-weight: 600; text-decoration: none; transition: var(--transition); cursor: pointer;
+    border: 2px solid transparent;
 }
-.ov-btn-primary { background-color: var(--accent); color: #fff; }
-.ov-btn-primary:hover {
-    background-color: var(--accent-hover); transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(9,105,218,0.3);
+.ov-btn-video {
+    background-color: #1d4ed8;
+    color: #ffffff;
+    border-color: #1d4ed8;
 }
-.ov-btn-secondary { background-color: #f0f2f5; color: var(--text-main); border: 1px solid var(--border); }
-.ov-btn-secondary:hover { background-color: #e8ecf0; transform: translateY(-1px); }
-.ov-btn-green { background-color: #1a7f37; color: #fff; }
-.ov-btn-green:hover {
-    background-color: #166429; transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(26,127,55,0.3);
+.ov-btn-video:hover {
+    background-color: #1e40af;
+    border-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(29,78,216,0.35);
+    text-decoration: none;
+    color: #fff;
+}
+.ov-btn-advanced {
+    background-color: #7c3aed;
+    color: #ffffff;
+    border-color: #7c3aed;
+}
+.ov-btn-advanced:hover {
+    background-color: #6d28d9;
+    border-color: #6d28d9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(124,58,237,0.35);
+    text-decoration: none;
+    color: #fff;
+}
+.ov-btn-cheatsheet {
+    background-color: #15803d;
+    color: #ffffff;
+    border-color: #15803d;
+}
+.ov-btn-cheatsheet:hover {
+    background-color: #166534;
+    border-color: #166534;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(21,128,61,0.35);
+    text-decoration: none;
+    color: #fff;
 }
 
 /* Groups */

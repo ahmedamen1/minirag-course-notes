@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const sidebar = document.getElementById('sidebar');
 
-    let sections = []; // Will hold objects: { id, title, content }
+    let sections = []; // Will hold objects: { id, title, content, isOverview }
     let currentSectionId = null;
 
     // Configure marked.js to use highlight.js
@@ -31,71 +31,76 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Handle internal #section-* link clicks inside rendered content
+    contentContainer.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const targetId = link.getAttribute('href').slice(1);
+        const section = sections.find(s => s.id === targetId);
+        if (section) {
+            e.preventDefault();
+            window.history.pushState(null, null, `#${targetId}`);
+            renderContent(targetId);
+            if (window.innerWidth <= 768) sidebar.classList.remove('open');
+        }
+    });
+
     // Fetch and parse the Markdown file
     fetch('minirag_course_notes.md')
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+            if (!response.ok) throw new Error('Network response was not ok');
             return response.text();
         })
         .then(markdown => parseMarkdown(markdown))
         .catch(error => {
-            navLinksContainer.innerHTML = '<li style="color: #ff7b72; padding: 10px;">Error loading file. Are you running a local server? (e.g. start_viewer.bat)</li>';
+            navLinksContainer.innerHTML = '<li style="color: #cf222e; padding: 10px;">Error loading file. Are you running a local server? (e.g. start_viewer.bat)</li>';
             contentContainer.innerHTML = `
-                <div style="background: #21262d; padding: 30px; border-radius: 8px; text-align: center;">
-                    <h2>Could not load notes</h2>
-                    <p style="color: #8b949e; margin-top: 10px;">If you opened index.html directly, your browser blocks fetching local files.</p>
-                    <p style="color: #8b949e; margin-top: 5px;">Please run the <strong>start_viewer.bat</strong> script to start a local server.</p>
+                <div style="background: #fff8f0; border:1px solid #d0d7de; padding: 30px; border-radius: 8px; text-align: center;">
+                    <h2 style="color:#1f2328;">Could not load notes</h2>
+                    <p style="color:#656d76; margin-top: 10px;">If you opened index.html directly, your browser blocks fetching local files.</p>
+                    <p style="color:#656d76; margin-top: 5px;">Please run the <strong>start_viewer.bat</strong> script to start a local server.</p>
                 </div>`;
             console.error('Error fetching markdown:', error);
         });
 
     function parseMarkdown(markdown) {
-        // Split by '## ' which indicates top-level sections in this document
         const rawSections = markdown.split(/\n(?=## )/);
-        
+
         sections = rawSections.map((sectionContent, index) => {
-            // Find the title (first line)
             const lines = sectionContent.split('\n');
             let titleLine = lines[0];
-            
-            // Clean up title
             let title = titleLine.replace(/^##\s+/, '').trim();
-            // If it's the very first part of the file (before any ##), it might not have a title
+
+            // The very first chunk (before any ##) becomes the Overview
             if (index === 0 && !titleLine.startsWith('##')) {
-                title = "Overview";
+                title = 'Overview';
             }
 
-            // Create a safe ID
             const id = 'section-' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+            const isOverview = (index === 0 && !rawSections[0].trim().startsWith('##'))
+                || title === 'Overview';
 
-            return { id, title, content: sectionContent };
+            return { id, title, content: sectionContent, isOverview };
         });
 
-        // Some sections might be empty or too short if the split was weird, filter them
         sections = sections.filter(sec => sec.content.trim().length > 0);
 
         renderSidebar();
-        
-        // Load first section or URL hash
+
         const hash = window.location.hash.slice(1);
         const targetSection = sections.find(s => s.id === hash) || sections[0];
-        
-        if (targetSection) {
-            renderContent(targetSection.id);
-        }
+        if (targetSection) renderContent(targetSection.id);
     }
 
     function renderSidebar(filterText = '') {
         navLinksContainer.innerHTML = '';
-        
-        const filteredSections = sections.filter(sec => 
+
+        const filteredSections = sections.filter(sec =>
             sec.title.toLowerCase().includes(filterText.toLowerCase())
         );
 
         if (filteredSections.length === 0) {
-            navLinksContainer.innerHTML = '<li style="padding: 10px; color: #8b949e;">No results found.</li>';
+            navLinksContainer.innerHTML = '<li style="padding: 10px; color: #656d76;">No results found.</li>';
             return;
         }
 
@@ -105,16 +110,12 @@ document.addEventListener('DOMContentLoaded', () => {
             a.href = `#${sec.id}`;
             a.className = `nav-link ${sec.id === currentSectionId ? 'active' : ''}`;
             a.textContent = sec.title;
-            
+
             a.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.history.pushState(null, null, `#${sec.id}`);
                 renderContent(sec.id);
-                
-                // Close mobile sidebar on click
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove('open');
-                }
+                if (window.innerWidth <= 768) sidebar.classList.remove('open');
             });
 
             li.appendChild(a);
@@ -127,21 +128,75 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!section) return;
 
         currentSectionId = id;
-        
-        // Update active class in sidebar
+
         document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
         });
 
-        // Convert markdown to HTML and inject
-        contentContainer.innerHTML = marked.parse(section.content);
+        // Overview renders as a dynamic table of contents
+        if (section.isOverview) {
+            contentContainer.innerHTML = buildOverviewHTML();
+        } else {
+            contentContainer.innerHTML = marked.parse(section.content);
+        }
 
-        // Scroll to top
         document.getElementById('main-content').scrollTop = 0;
+    }
+
+    // ─── Dynamic Overview / Table of Contents ────────────────────────────────
+
+    function buildOverviewHTML() {
+        const nonOverview = sections.filter(s => !s.isOverview);
+
+        const intro       = nonOverview.filter(s => /^introduction$/i.test(s.title));
+        const toc         = nonOverview.filter(s => /table of contents/i.test(s.title));
+        const videos      = nonOverview.filter(s => /video\s*\d/i.test(s.title));
+        const checkpoints = nonOverview.filter(s => /checkpoint|video links|course complete/i.test(s.title)
+                                && !videos.includes(s));
+        const advanced    = nonOverview.filter(s => /advanced topic/i.test(s.title));
+        const cheatsheet  = nonOverview.filter(s => /cheatsheet|best practices/i.test(s.title));
+        const other       = nonOverview.filter(s =>
+            !intro.includes(s) && !toc.includes(s) && !videos.includes(s) &&
+            !checkpoints.includes(s) && !advanced.includes(s) &&
+            !cheatsheet.includes(s)
+        );
+
+        const card = (sec) => `
+            <a href="#${sec.id}" class="ov-card" data-section-id="${sec.id}">
+                <span class="ov-card-title">${sec.title}</span>
+                <span class="ov-card-arrow">→</span>
+            </a>`;
+
+        const group = (label, emoji, items, mod = '') => items.length === 0 ? '' : `
+            <div class="ov-group ${mod}">
+                <h2 class="ov-group-label">${emoji} ${label}</h2>
+                <div class="ov-cards">${items.map(card).join('')}</div>
+            </div>`;
+
+        return `
+        <div class="ov-hero">
+            <div class="ov-hero-icon">📚</div>
+            <h1 class="ov-hero-title">MiniRAG Course Notes</h1>
+            <p class="ov-hero-sub">A comprehensive, interactive knowledge base covering RAG systems from fundamentals to production-ready deployment.</p>
+            <div class="ov-stats">
+                <div class="ov-stat"><span class="ov-stat-n">${videos.length}</span><span class="ov-stat-l">Course Videos</span></div>
+                <div class="ov-stat"><span class="ov-stat-n">${advanced.length}</span><span class="ov-stat-l">Advanced Topics</span></div>
+                <div class="ov-stat"><span class="ov-stat-n">${sections.length - 1}</span><span class="ov-stat-l">Total Sections</span></div>
+            </div>
+            <div class="ov-quick">
+                <a href="#${videos[0]?.id || ''}" class="ov-btn ov-btn-primary">🎬 Start from Video 1</a>
+                <a href="#${advanced[0]?.id || ''}" class="ov-btn ov-btn-secondary">🧠 Jump to Advanced Topics</a>
+                ${cheatsheet[0] ? `<a href="#${cheatsheet[0].id}" class="ov-btn ov-btn-green">✅ Production Cheatsheet</a>` : ''}
+            </div>
+        </div>
+
+        ${group('Getting Started', '📖', [...intro, ...toc])}
+        ${group('Course Videos (1 – 25)', '🎬', videos, 'ov-group--videos')}
+        ${checkpoints.length ? group('Checkpoints & References', '🏁', checkpoints) : ''}
+        ${group('Advanced Topics', '🧠', advanced, 'ov-group--advanced')}
+        ${group('Production Reference', '✅', cheatsheet, 'ov-group--cheatsheet')}
+        ${other.length ? group('Other Sections', '📋', other) : ''}
+        `;
     }
 
     // Search functionality

@@ -22529,48 +22529,48 @@ Stage 7: CONTINUOUS IMPROVEMENT
 Follow this exact sequence when building a new RAG system from scratch:
 
 `
-Phase 1 — Foundation (Days 1–3)
+Phase 1 — Foundation
   ├── Set up FastAPI project structure (layered architecture)
   ├── Configure environment (.env, pydantic-settings)
   ├── Add file upload endpoint with validation
   └── Set up Docker Compose (app + DB + vector store)
 
-Phase 2 — Ingestion Pipeline (Days 4–6)
+Phase 2 — Ingestion Pipeline
   ├── Implement document text extraction (PyMuPDF)
   ├── Add text cleaning step
   ├── Implement chunking (start with fixed-size, tune later)
   ├── Add embedding call (factory pattern from day one)
   └── Store chunks + embeddings in vector DB with metadata
 
-Phase 3 — Retrieval + Generation (Days 7–9)
+Phase 3 — Retrieval + Generation
   ├── Build semantic search endpoint
   ├── Implement context window budget
   ├── Write and test system prompt
   ├── Connect LLM (factory pattern)
   └── Return answer with source references
 
-Phase 4 — Quality (Days 10–12)
+Phase 4 — Quality
   ├── Build golden test set (50 QA pairs minimum)
   ├── Run RAGAS evaluation baseline
   ├── Add re-ranking
   ├── Tune chunk size based on eval results
   └── Add hybrid search if recall is low
 
-Phase 5 — Production Hardening (Days 13–16)
+Phase 5 — Production Hardening
   ├── Add input validation + injection detection
   ├── Implement rate limiting
   ├── Move ingestion to Celery background tasks
   ├── Add semantic caching
   └── Set up Prometheus + Grafana
 
-Phase 6 — Deploy (Days 17–20)
+Phase 6 — Deploy
   ├── Set up server (AWS Lightsail or equivalent)
   ├── Configure Nginx reverse proxy
   ├── Set up CI/CD (GitHub Actions)
   ├── Deploy with systemd service
   └── Run eval suite against production
 
-Phase 7 — Iterate (Ongoing)
+Phase 7 — Iterate
   ├── Review user feedback and failed queries
   ├── Expand test set with real failure cases
   ├── Re-tune chunking or retrieval strategy

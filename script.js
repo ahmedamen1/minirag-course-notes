@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const intro       = nonOverview.filter(s => /^introduction$/i.test(s.title));
         const toc         = nonOverview.filter(s => /table of contents/i.test(s.title));
-        const videos      = nonOverview.filter(s => /video\s*\d/i.test(s.title));
+        const videos      = nonOverview.filter(s => /videos?\s*\d/i.test(s.title));
         const checkpoints = nonOverview.filter(s => /checkpoint|video links|course complete/i.test(s.title)
                                 && !videos.includes(s));
         const advanced    = nonOverview.filter(s => /advanced topic/i.test(s.title));
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
 
             <div class="ov-stats">
-                <div class="ov-stat"><span class="ov-stat-n">${videos.length}</span><span class="ov-stat-l">Course Videos</span></div>
+                <div class="ov-stat"><span class="ov-stat-n">25</span><span class="ov-stat-l">Course Videos</span></div>
                 <div class="ov-stat"><span class="ov-stat-n">${advanced.length}</span><span class="ov-stat-l">Advanced Topics</span></div>
                 <div class="ov-stat"><span class="ov-stat-n">${sections.length - 1}</span><span class="ov-stat-l">Total Sections</span></div>
             </div>

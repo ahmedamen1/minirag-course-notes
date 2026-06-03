@@ -37,7 +37,7 @@ This document is a collaborative knowledge base drawing from the work of multipl
 
 ---
 
-## 📚 Table of Contents
+## 📚 Table of Contents & Course Playlist
 
 ### Course Information
 
@@ -52,7 +52,7 @@ This document is a collaborative knowledge base drawing from the work of multipl
 ### 🛠️ Project at a Glance
 
 | What | Details |
-|------|---------|
+|------|--------|
 | **What it builds** | Production-ready RAG chatbot over your own documents |
 | **Key features** | File upload, semantic search, LLM Q&A, swappable providers |
 | **Tech stack** | FastAPI · MongoDB/PostgreSQL · PgVector · Docker · Celery · Ollama |
@@ -60,39 +60,43 @@ This document is a collaborative knowledge base drawing from the work of multipl
 
 ---
 
-### 🗺️ Full Course Curriculum (25 Videos)
+### 🎬 Course Videos (25) — Links & Notes
 
-| # | Topic | What It Covers |
-|---|-------|---------------|
-| 1 | About the Course | Why RAG? Course overview |
-| 2 | What Will We Build | System design preview |
-| 3 | Setup Your Tools | Dev environment setup |
-| 4 | Project Architecture | Folder structure, design decisions |
-| 5 | Welcome to FastAPI | Building the API layer |
-| 6 | Nested Routes + Env Values | Route organization, `.env` configs |
-| 7 | Uploading a File | File upload endpoint |
-| 8 | File Processing | Parsing & preprocessing docs |
-| 9 | Docker + MongoDB + Motor | Containerization + async DB |
-| 10 | Mongo Schemas & Models | Data modeling |
-| 11 | Mongo Indexing | DB performance |
-| 12 | Data Pipeline Enhancements | Improving ingestion flow |
-| 13 | Checkpoint 1 | Review & consolidation |
-| 14 | LLM Factory | Abstracting LLM providers |
-| 15 | Vector DB Factory | Abstracting vector stores |
-| 16 | Semantic Search | Embeddings + similarity search |
-| 17 | Augmented Answers | The actual RAG chain |
-| 18 | Checkpoint 2 + Fix Issues | Bug fixes & review |
-| 19 | Ollama Local LLM Server | Running LLMs locally |
-| 20 | MongoDB → PostgreSQL + SQLAlchemy & Alembic | DB migration |
-| 21 | The Way to PgVector | Postgres as vector store |
-| 22–23 | App Deployments 1/2 & 2/2 | Production containerization, monitoring, CI/CD, cloud servers |
-| 24–25 | Celery Workers 1/2 & 2/2 | Async background task processing |
+> All videos are in Arabic by **Abu Bakr Soliman**. Click **Watch** for YouTube, **Notes** to jump to the in-depth notes section.
+
+| # | Topic | YouTube | GitHub | Notes |
+|---|-------|---------|--------|-------|
+| 1 | About the Course | [Watch](https://www.youtube.com/watch?v=Vv6e2Rb1Q6w&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-video-1-about-the-course) |
+| 2 | What Will We Build | [Watch](https://www.youtube.com/watch?v=_l5S5CdxE-Q&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=2) | — | [Notes](#section-video-2-what-will-we-build) |
+| 3 | Setup Your Tools | [Watch](https://www.youtube.com/watch?v=VSFbkFRAT4w&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=3) | — | [Notes](#section-video-3-setup-your-tools) |
+| 4 | Project Architecture | [Watch](https://www.youtube.com/watch?v=Ei_nBwBbFUQ&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=4) | [tut-001](https://github.com/bakrianoo/mini-rag/tree/tut-001) | [Notes](#section-video-4-project-architecture) |
+| 5 | Welcome to FastAPI | [Watch](https://www.youtube.com/watch?v=cpOuCdzN_Mo&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=5) | [tut-002](https://github.com/bakrianoo/mini-rag/tree/tut-002) | [Notes](#section-video-5-welcome-to-fastapi) |
+| 6 | Nested Routes + Env Values | [Watch](https://www.youtube.com/watch?v=CrR2Bz2Y7Hw&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=6) | [tut-003](https://github.com/bakrianoo/mini-rag/tree/tut-003) | [Notes](#section-video-6-nested-routes-env-values) |
+| 7 | Uploading a File | [Watch](https://www.youtube.com/watch?v=5alMKCbFqWs&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=7) | [tut-004](https://github.com/bakrianoo/mini-rag/tree/tut-004) | [Notes](#section-video-7-uploading-a-file) |
+| 8 | File Processing | [Watch](https://www.youtube.com/watch?v=gQgr2iwtSBw) | [tut-005](https://github.com/bakrianoo/mini-rag/tree/tut-005) | [Notes](#section-video-8-file-processing) |
+| 9 | Docker + MongoDB + Motor | [Watch](https://www.youtube.com/watch?v=2NOKWm0xJAk) | [tut-006](https://github.com/bakrianoo/mini-rag/tree/tut-006) | [Notes](#section-video-9-docker-mongodb-motor) |
+| 10 | Mongo Schemas & Models | [Watch](https://www.youtube.com/watch?v=qiWANnFmVRc) | [tut-007](https://github.com/bakrianoo/mini-rag/tree/tut-007) | [Notes](#section-video-10-mongo-schemas-models) |
+| 11 | Mongo Indexing | [Watch](https://www.youtube.com/watch?v=iO8FAmUVcjE) | [tut-008](https://github.com/bakrianoo/mini-rag/tree/tut-008) | [Notes](#section-video-11-mongo-indexing) |
+| 12 | Data Pipeline Enhancements | [Watch](https://www.youtube.com/watch?v=4x1DuezZBDU) | [tut-009](https://github.com/bakrianoo/mini-rag/tree/tut-009) | [Notes](#section-video-12-data-pipeline-enhancements) |
+| 13 | Checkpoint 1 | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-010](https://github.com/bakrianoo/mini-rag/tree/tut-010) | [Notes](#section-video-13-checkpoint-1) |
+| 14 | LLM Factory | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-011](https://github.com/bakrianoo/mini-rag/tree/tut-011) | [Notes](#section-video-14-llm-factory) |
+| 15 | Vector DB Factory | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-012](https://github.com/bakrianoo/mini-rag/tree/tut-012) | [Notes](#section-video-15-vector-db-factory) |
+| 16 | Semantic Search | [Watch](https://www.youtube.com/watch?v=V3swQKokJW8) | [tut-013](https://github.com/bakrianoo/mini-rag/tree/tut-013) | [Notes](#section-video-16-semantic-search) |
+| 17 | Augmented Answers | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-014](https://github.com/bakrianoo/mini-rag/tree/tut-014) | [Notes](#section-video-17-augmented-answers) |
+| 18 | Checkpoint 2 + Bug Fixes | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-015](https://github.com/bakrianoo/mini-rag/tree/tut-015) | [Notes](#section-video-18-checkpoint-2-bug-fixes) |
+| 19 | Ollama Local LLM Server | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-016](https://github.com/bakrianoo/mini-rag/tree/tut-016) | [Notes](#section-video-19-ollama-local-llm-server) |
+| 20 | MongoDB to PostgreSQL + Alembic | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | [tut-017](https://github.com/bakrianoo/mini-rag/tree/tut-017) | [Notes](#section-video-20-mongodb-postgresql-sqlalchemy-alembic) |
+| 21 | The Way to PgVector | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-video-21-the-way-to-pgvector) |
+| 22 | App Deployment 1/2 | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-video-22-app-deployment-1-2-monitoring-and-production-setup) |
+| 23 | App Deployment 2/2 | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-video-23-app-deployment-2-2-ci-cd-servers-and-production) |
+| 24 | Celery Workers 1/2 | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-videos-24-25-celery-workers-1-2-2-2) |
+| 25 | Celery Workers 2/2 | [Watch](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — | [Notes](#section-videos-24-25-celery-workers-1-2-2-2) |
+
+> 💡 **Videos 21–25** do not have individual links — open the full playlist and navigate by index.
 
 ---
 
 ### 📖 Advanced Topics (Beyond the Course)
-
-These sections extend the course with deeper research, production patterns, and real-world techniques not covered in the 25 videos. Authored by Ahmed Amin from hands-on work and external study.
 
 | # | Topic | What It Covers |
 |---|-------|---------------|
@@ -112,7 +116,7 @@ These sections extend the course with deeper research, production patterns, and 
 | AT-14 | RAG for Arabic and RTL Languages | Arabic tokenization, multilingual embeddings, Dhakira |
 | AT-15 | Prompt Injection and RAG Security | Attack types, defenses, content filtering |
 | AT-16 | Metadata Filtering | Structured filters, date ranges, tenant isolation |
-| AT-17 | Cost Optimization and Token Management | Token budgets, caching layers, ROI calculator, cost tracking middleware |
+| AT-17 | Cost Optimization and Token Management | Token budgets, caching layers, ROI calculator |
 | AT-18 | Testing RAG Systems | Unit tests, integration tests, regression testing |
 | AT-19 | LangChain and LlamaIndex Integration | Framework comparison, when to use each |
 | AT-20 | RAG vs Fine-tuning | Decision framework, when to use each, combining both |
@@ -11993,41 +11997,8 @@ Flower (Celery monitor) → Node Exporter (server health)
 ---
 
 
-## 🎬 Video Links — Full Course Playlist
 
-> All videos are in Arabic by **Abu Bakr Soliman (bakrianoo)**. The full playlist is on YouTube. GitHub repo with code for each video: [github.com/bakrianoo/mini-rag](https://github.com/bakrianoo/mini-rag)
-
-| # | Topic | YouTube Link | GitHub Branch |
-|---|-------|-------------|---------------|
-| 1 | About the Course — ماذا ولمـــاذا | [▶ Watch](https://www.youtube.com/watch?v=Vv6e2Rb1Q6w&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-| 2 | What Will We Build — ماذا سنبنى | [▶ Watch](https://www.youtube.com/watch?v=_l5S5CdxE-Q&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=2) | — |
-| 3 | Setup Your Tools — الأدوات الأساسية | [▶ Watch](https://www.youtube.com/watch?v=VSFbkFRAT4w&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=3) | — |
-| 4 | Project Architecture | [▶ Watch](https://www.youtube.com/watch?v=Ei_nBwBbFUQ&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=4) | [tut-001](https://github.com/bakrianoo/mini-rag/tree/tut-001) |
-| 5 | Welcome to FastAPI | [▶ Watch](https://www.youtube.com/watch?v=cpOuCdzN_Mo&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=5) | [tut-002](https://github.com/bakrianoo/mini-rag/tree/tut-002) |
-| 6 | Nested Routes + Env Values | [▶ Watch](https://www.youtube.com/watch?v=CrR2Bz2Y7Hw&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=6) | [tut-003](https://github.com/bakrianoo/mini-rag/tree/tut-003) |
-| 7 | Uploading a File | [▶ Watch](https://www.youtube.com/watch?v=5alMKCbFqWs&list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=7) | [tut-004](https://github.com/bakrianoo/mini-rag/tree/tut-004) |
-| 8 | File Processing | [▶ Watch](https://www.youtube.com/watch?v=gQgr2iwtSBw) | [tut-005](https://github.com/bakrianoo/mini-rag/tree/tut-005) |
-| 9 | Docker + MongoDB + Motor | [▶ Watch](https://www.youtube.com/watch?v=2NOKWm0xJAk) | [tut-006](https://github.com/bakrianoo/mini-rag/tree/tut-006) |
-| 10 | Mongo Schemas & Models | [▶ Watch](https://www.youtube.com/watch?v=qiWANnFmVRc) | [tut-007](https://github.com/bakrianoo/mini-rag/tree/tut-007) |
-| 11 | Mongo Indexing | [▶ Watch](https://www.youtube.com/watch?v=iO8FAmUVcjE) | [tut-008](https://github.com/bakrianoo/mini-rag/tree/tut-008) |
-| 12 | Data Pipeline Enhancements | [▶ Watch](https://www.youtube.com/watch?v=4x1DuezZBDU) | [tut-009](https://github.com/bakrianoo/mini-rag/tree/tut-009) |
-| 13 | Checkpoint 1 | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=13) | [tut-010](https://github.com/bakrianoo/mini-rag/tree/tut-010) |
-| 14 | LLM Factory | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=14) | [tut-011](https://github.com/bakrianoo/mini-rag/tree/tut-011) |
-| 15 | Vector DB Factory | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=15) | [tut-012](https://github.com/bakrianoo/mini-rag/tree/tut-012) |
-| 16 | Semantic Search | [▶ Watch](https://www.youtube.com/watch?v=V3swQKokJW8) | [tut-013](https://github.com/bakrianoo/mini-rag/tree/tut-013) |
-| 17 | Augmented Answers | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=17) | [tut-014](https://github.com/bakrianoo/mini-rag/tree/tut-014) |
-| 18 | Checkpoint 2 + Fix Issues | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=18) | [tut-015](https://github.com/bakrianoo/mini-rag/tree/tut-015) |
-| 19 | Ollama Local LLM Server | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=19) | [tut-016](https://github.com/bakrianoo/mini-rag/tree/tut-016) |
-| 20 | MongoDB → PostgreSQL + SQLAlchemy & Alembic | [▶ Watch](https://www.youtube.com/watch?v=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj&index=20) | [tut-017](https://github.com/bakrianoo/mini-rag/tree/tut-017) |
-| 21 | The Way to PgVector | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-| 22 | App Deployments 1/2 | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-| 23 | App Deployments 2/2 | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-| 24 | Celery Workers 1/2 | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-| 25 | Celery Workers 2/2 | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
-
-> 💡 **For videos 21–25 without direct links:** open the full playlist and navigate to the video by index. All confirmed links above are sourced from the official GitHub README.
-
----
+--
 
 ## 🚀 What's Missing — Topics for Advanced RAG
 

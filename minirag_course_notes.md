@@ -23569,60 +23569,6 @@ openpyxl==3.x.x               # Excel file reading
 
 ---
 
-## 🎉 Knowledge Base Complete — The Full Learning Journey
-
-This document covers the complete MiniRAG course (25 videos) plus 19 advanced RAG topics and 4 reference guides by external authors. The full journey — from "what is RAG?" to production-grade, multi-modal, agentic, evaluated, safe, and high-performance RAG systems:
-
-```
-PART I — Course (Videos 1–25):
-
-  Foundation (Videos 1–13):
-    What is RAG → System Design → Dev Setup → FastAPI → File Upload → Processing
-    MongoDB → Indexing → Data Pipeline → Checkpoint 1
-
-  Intelligence Layer (Videos 14–18):
-    LLM Factory → Vector DB Factory → Semantic Search → Augmented Answers → Checkpoint 2
-
-  Production Deployment (Videos 19–25):
-    Ollama → PostgreSQL/pgvector → Monitoring → CI/CD → Celery Workers
-
-PART II — Advanced Topics (AT-1 to AT-19):
-
-  AT-1:  Advanced Retrieval      — Hybrid search, re-ranking, HyDE, parent-child
-  AT-2:  Query Understanding     — Classification, intent, routing, decomposition
-  AT-3:  Document Processing     — Tables, images, OCR, contextual retrieval
-  AT-4:  Agentic RAG            — ReAct, iterative retrieval, RAPTOR, adaptive routing
-  AT-5:  Evaluation             — Test sets, RAGAS, LLM judge, Phoenix tracing
-  AT-6:  Production Safety      — Injection detection, hallucination, confidence scoring
-  AT-7:  Conversation Memory    — Sessions, query rewriting, hybrid memory, caching
-  AT-8:  Performance/Scaling    — Embedding cache, streaming, pooling, async indexing
-  AT-9:  Multi-modal RAG        — Images, audio/video, Text-to-SQL, spreadsheets
-  AT-10: Embedding Models       — Model selection, fine-tuning, MTEB benchmarks
-  AT-11: Chunking Strategies    — Fixed, recursive, semantic, parent-child deep dive
-  AT-12: GraphRAG               — Entity extraction, Neo4j, multi-hop retrieval
-  AT-13: Prompt Engineering     — Chain-of-thought, few-shot, output formatting
-  AT-14: Arabic RAG             — Tokenization, multilingual embeddings, Dhakira
-  AT-15: RAG Security           — Prompt injection attacks, defenses, content filtering
-  AT-16: Metadata Filtering     — Structured filters, date ranges, tenant isolation
-  AT-17: Cost Optimization      — Token budgets, caching layers, ROI calculator
-  AT-18: Testing RAG            — Unit tests, integration tests, regression testing
-  AT-19: LangChain/LlamaIndex   — Framework comparison, when to use each
-  AT-20: RAG vs Fine-tuning     — Decision framework, when to use each, combining both
-  AT-21: Structured Output      — Pydantic schemas, typed answers, metadata extraction
-  AT-22: Streaming Responses    — SSE in FastAPI, streaming LLM provider, Nginx config
-  AT-23: Feedback Loops         — Collecting signals, failure analysis, continuous improvement
-
-PART III — Reference Guides:
-
-  AI Chatbot Production Guide   — Ahmed Amin
-  RAG Architectures for AI Eng. — Lamhot Siagian
-  Top Ten AI Design Patterns    — Chandra Sekhar
-  GenAI Interview Guide         — Hesham Haroon (200 Q&As)
-```
-
----
-
-
 ## 🧠 Advanced Topic 10 — Embedding Models Deep Dive
 
 > *Choosing the right embedding model is one of the highest-leverage decisions in a RAG system. The wrong choice silently kills retrieval quality.*
@@ -26458,4 +26404,43 @@ Follow this exact sequence when building a new RAG system from scratch:
 ---
 
 *This cheatsheet covers the complete production RAG lifecycle. For implementation details of any step, refer to the relevant Advanced Topic sections in this knowledge base.*
+---
 
+## 🎉 Knowledge Base Complete — The Full Learning Journey
+
+This document covers the complete MiniRAG course (25 videos) plus 23 advanced RAG topics and 4 reference guides by external authors. The full journey — from "what is RAG?" to production-grade, multi-modal, agentic, evaluated, safe, and high-performance RAG systems:
+
+
+
+---
+
+## ⚠️ Disclaimer
+
+> **This knowledge base is a living document compiled for educational purposes.**
+
+The content here is drawn from multiple sources — a YouTube course, external guides by contributing authors, and personal research notes from hands-on engineering work. Please keep the following in mind before applying anything you read here:
+
+### Accuracy & Currency
+
+- **Verify before you use.** AI tooling, APIs, pricing, and best practices change rapidly. Always cross-check critical information — especially pricing tables, model names, and library APIs — against official documentation before relying on it in production.
+- **Models and prices listed** (GPT-4o, Claude, Groq, etc.) reflect data available at time of writing and **will be outdated**. Check provider pricing pages directly.
+- **Code examples** are illustrative pseudocode and reference implementations. They may require adaptation for your specific environment, versions, and security requirements.
+
+### Attribution
+
+- Course content is based on the **MiniRAG YouTube series** by [Abu Bakr Soliman](https://www.linkedin.com/in/bakrianoo/) and is credited accordingly.
+- Reference guide sections are authored by [Hesham Haroon](https://www.linkedin.com/in/hesham-haroon/), [Lamhot Siagian](https://www.linkedin.com/in/lamhotsiagian/), and [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/) — all rights remain with the original authors.
+- Research notes and advanced topic expansions were written by [Ahmed Amin](https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar) based on personal study and professional experience at Takhaial.
+
+### Not Professional Advice
+
+- Nothing in this document constitutes legal, financial, medical, or security advice.
+- Architecture decisions, cost estimates, and technology recommendations are opinions and starting points — not guarantees. Always evaluate trade-offs for your specific context.
+
+### No Warranty
+
+This document is provided as-is, with no warranties of any kind. The authors and contributors are not liable for any errors, omissions, or outcomes resulting from use of this material.
+
+---
+
+*Last compiled: 2026 · Maintained by [Ahmed Amin](https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar) · [ahmed.m.amin2003@gmail.com](mailto:ahmed.m.amin2003@gmail.com)*

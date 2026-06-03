@@ -719,12 +719,32 @@ body {
     border: 2px solid transparent; cursor: pointer;
 }
 .ov-btn:hover { transform: translateY(-2px); text-decoration: none; }
-.ov-btn-video     { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
-.ov-btn-video:hover { background: #1e40af; border-color: #1e40af; box-shadow: 0 6px 16px rgba(29,78,216,0.3); color: #fff; }
-.ov-btn-advanced  { background: #7c3aed; color: #fff; border-color: #7c3aed; }
-.ov-btn-advanced:hover { background: #6d28d9; border-color: #6d28d9; box-shadow: 0 6px 16px rgba(124,58,237,0.3); color: #fff; }
-.ov-btn-cheatsheet { background: #15803d; color: #fff; border-color: #15803d; }
-.ov-btn-cheatsheet:hover { background: #166534; border-color: #166534; box-shadow: 0 6px 16px rgba(21,128,61,0.3); color: #fff; }
+
+/* Force white text — override #content-container a { color: var(--accent) } */
+#content-container .ov-btn-video,
+#content-container .ov-btn-video:hover,
+.ov-btn-video, .ov-btn-video:hover {
+    background: #1d4ed8; color: #ffffff !important; border-color: #1d4ed8;
+}
+#content-container .ov-btn-video:hover, .ov-btn-video:hover {
+    background: #1e40af; border-color: #1e40af; box-shadow: 0 6px 16px rgba(29,78,216,0.3);
+}
+#content-container .ov-btn-advanced,
+#content-container .ov-btn-advanced:hover,
+.ov-btn-advanced, .ov-btn-advanced:hover {
+    background: #7c3aed; color: #ffffff !important; border-color: #7c3aed;
+}
+#content-container .ov-btn-advanced:hover, .ov-btn-advanced:hover {
+    background: #6d28d9; border-color: #6d28d9; box-shadow: 0 6px 16px rgba(124,58,237,0.3);
+}
+#content-container .ov-btn-cheatsheet,
+#content-container .ov-btn-cheatsheet:hover,
+.ov-btn-cheatsheet, .ov-btn-cheatsheet:hover {
+    background: #15803d; color: #ffffff !important; border-color: #15803d;
+}
+#content-container .ov-btn-cheatsheet:hover, .ov-btn-cheatsheet:hover {
+    background: #166534; border-color: #166534; box-shadow: 0 6px 16px rgba(21,128,61,0.3);
+}
 
 /* OV groups */
 .ov-group { margin-bottom: 36px; }
@@ -823,13 +843,14 @@ body {
     .ov-cards { grid-template-columns: 1fr; }
     .ov-contributor-grid { grid-template-columns: 1fr 1fr; }
     .ov-learner-card { flex-direction: column; gap: 16px; }
+    .ov-learner-info { padding-right: 0; padding-bottom: 16px; min-width: unset; }
     .ov-learner-meta { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
 }
 
 /* ── Learner Card ───────────────────────────── */
 .ov-learner-card {
     display: flex;
-    gap: 24px;
+    gap: 0;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
@@ -839,31 +860,13 @@ body {
     align-items: flex-start;
 }
 
-.ov-learner-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-shrink: 0;
-}
-
-.ov-learner-avatar {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), #6e40c9);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
 .ov-learner-info {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
+    flex-shrink: 0;
+    min-width: 200px;
+    padding-right: 24px;
 }
 .ov-learner-name {
     font-size: 1rem;
@@ -876,7 +879,7 @@ body {
     font-weight: 600;
 }
 .ov-learner-email {
-    font-size: 0.78rem;
+    font-size: 0.77rem;
     color: var(--text-muted);
     text-decoration: none;
 }
@@ -909,83 +912,31 @@ body {
     line-height: 1.4;
 }
 
-.ov-learner-linkedin {
+.ov-learner-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.ov-learner-linkedin,
+.ov-learner-github {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #0a66c2;
     text-decoration: none;
-    margin-top: 2px;
-    width: fit-content;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+    transition: var(--transition);
 }
-.ov-learner-linkedin:hover { text-decoration: underline; }
+.ov-learner-linkedin { color: #0a66c2; }
+.ov-learner-linkedin:hover { background: #e8f0fe; border-color: #0a66c2; text-decoration: none; }
 [data-theme="dark"] .ov-learner-linkedin { color: #58a6ff; }
+[data-theme="dark"] .ov-learner-linkedin:hover { background: rgba(88,166,255,0.1); border-color: #58a6ff; }
 
-/* ── Arabic Intro Card ──────────────────────── */
-.ov-arabic-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-right: 4px solid #16a34a;
-    border-radius: var(--radius-lg);
-    padding: 22px 24px;
-    margin-bottom: 24px;
-    font-family: 'Segoe UI', 'Cairo', 'Noto Sans Arabic', Arial, sans-serif;
-}
+.ov-learner-github { color: var(--text-main); }
+.ov-learner-github:hover { background: var(--accent-subtle); border-color: var(--accent); color: var(--accent); text-decoration: none; }
 
-.ov-arabic-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-}
-.ov-arabic-flag { font-size: 1.5rem; }
-.ov-arabic-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-main);
-    margin: 0;
-    border: none;
-    padding: 0;
-    letter-spacing: 0;
-}
-
-.ov-arabic-body {
-    font-size: 0.95rem;
-    color: var(--text-main);
-    line-height: 1.8;
-    margin-bottom: 12px;
-}
-
-.ov-arabic-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background: var(--bg-main);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 14px 16px;
-    margin: 14px 0;
-}
-
-.ov-arabic-section-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--text-main);
-    line-height: 1.5;
-}
-.ov-arabic-section-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-.ov-arabic-section-item strong { color: var(--accent); margin-left: 4px; }
-.ov-arabic-section-item span { color: var(--text-muted); margin-right: 6px; }
-
-.ov-arabic-note {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin: 0;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-    line-height: 1.7;
-}

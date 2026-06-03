@@ -26243,28 +26243,15 @@ weekly_metrics = {
 
 ### 🗺️ The 7 Stages of a Production RAG System
 
-`
-Stage 1: DOCUMENT INGESTION
-  Receive file → Validate → Clean → Chunk → Embed → Store
-
-Stage 2: RETRIEVAL
-  User query → Clean → Embed → Vector search (+ metadata filter) → Re-rank
-
-Stage 3: AUGMENTATION
-  Retrieved chunks → Context window budget → Build prompt
-
-Stage 4: GENERATION
-  Send to LLM → Stream response → Validate output
-
-Stage 5: SAFETY LAYER
-  Input validation → Output validation → Rate limiting
-
-Stage 6: OBSERVABILITY
-  Trace every request → Log metrics → Alert on anomalies
-
-Stage 7: CONTINUOUS IMPROVEMENT
-  Evaluate with RAGAS → Update test set → Re-index improved chunks
-`
+| Stage | Name | Pipeline |
+|-------|------|---------|
+| 1 | **Document Ingestion** | Receive file → Validate → Clean → Chunk → Embed → Store |
+| 2 | **Retrieval** | User query → Clean → Embed → Vector search (+ metadata filter) → Re-rank |
+| 3 | **Augmentation** | Retrieved chunks → Context window budget → Build prompt |
+| 4 | **Generation** | Send to LLM → Stream response → Validate output |
+| 5 | **Safety Layer** | Input validation → Output validation → Rate limiting |
+| 6 | **Observability** | Trace every request → Log metrics → Alert on anomalies |
+| 7 | **Continuous Improvement** | Evaluate with RAGAS → Update test set → Re-index improved chunks |
 
 ---
 
@@ -26370,54 +26357,52 @@ Stage 7: CONTINUOUS IMPROVEMENT
 
 Follow this exact sequence when building a new RAG system from scratch:
 
-`
-Phase 1 — Foundation
-  ├── Set up FastAPI project structure (layered architecture)
-  ├── Configure environment (.env, pydantic-settings)
-  ├── Add file upload endpoint with validation
-  └── Set up Docker Compose (app + DB + vector store)
+**Phase 1 — Foundation**
+- Set up FastAPI project structure (layered architecture)
+- Configure environment (`.env`, pydantic-settings)
+- Add file upload endpoint with validation
+- Set up Docker Compose (app + DB + vector store)
 
-Phase 2 — Ingestion Pipeline
-  ├── Implement document text extraction (PyMuPDF)
-  ├── Add text cleaning step
-  ├── Implement chunking (start with fixed-size, tune later)
-  ├── Add embedding call (factory pattern from day one)
-  └── Store chunks + embeddings in vector DB with metadata
+**Phase 2 — Ingestion Pipeline**
+- Implement document text extraction (PyMuPDF)
+- Add text cleaning step
+- Implement chunking (start with fixed-size, tune later)
+- Add embedding call (factory pattern from day one)
+- Store chunks + embeddings in vector DB with metadata
 
-Phase 3 — Retrieval + Generation
-  ├── Build semantic search endpoint
-  ├── Implement context window budget
-  ├── Write and test system prompt
-  ├── Connect LLM (factory pattern)
-  └── Return answer with source references
+**Phase 3 — Retrieval + Generation**
+- Build semantic search endpoint
+- Implement context window budget
+- Write and test system prompt
+- Connect LLM (factory pattern)
+- Return answer with source references
 
-Phase 4 — Quality
-  ├── Build golden test set (50 QA pairs minimum)
-  ├── Run RAGAS evaluation baseline
-  ├── Add re-ranking
-  ├── Tune chunk size based on eval results
-  └── Add hybrid search if recall is low
+**Phase 4 — Quality**
+- Build golden test set (50 QA pairs minimum)
+- Run RAGAS evaluation baseline
+- Add re-ranking
+- Tune chunk size based on eval results
+- Add hybrid search if recall is low
 
-Phase 5 — Production Hardening
-  ├── Add input validation + injection detection
-  ├── Implement rate limiting
-  ├── Move ingestion to Celery background tasks
-  ├── Add semantic caching
-  └── Set up Prometheus + Grafana
+**Phase 5 — Production Hardening**
+- Add input validation + injection detection
+- Implement rate limiting
+- Move ingestion to Celery background tasks
+- Add semantic caching
+- Set up Prometheus + Grafana
 
-Phase 6 — Deploy
-  ├── Set up server (AWS Lightsail or equivalent)
-  ├── Configure Nginx reverse proxy
-  ├── Set up CI/CD (GitHub Actions)
-  ├── Deploy with systemd service
-  └── Run eval suite against production
+**Phase 6 — Deploy**
+- Set up server (AWS Lightsail or equivalent)
+- Configure Nginx reverse proxy
+- Set up CI/CD (GitHub Actions)
+- Deploy with systemd service
+- Run eval suite against production
 
-Phase 7 — Iterate
-  ├── Review user feedback and failed queries
-  ├── Expand test set with real failure cases
-  ├── Re-tune chunking or retrieval strategy
-  └── Consider advanced features (GraphRAG, Agentic RAG, conversation memory)
-`
+**Phase 7 — Iterate**
+- Review user feedback and failed queries
+- Expand test set with real failure cases
+- Re-tune chunking or retrieval strategy
+- Consider advanced features (GraphRAG, Agentic RAG, conversation memory)
 
 ---
 

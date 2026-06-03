@@ -546,9 +546,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const contributors = [
             { name: 'Abu Bakr Soliman', role: 'Course Instructor', url: 'https://www.linkedin.com/in/bakrianoo/' },
             { name: 'Ahmed Amin',       role: 'AI Engineer @ Takhaial', url: 'https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar' },
+            { name: 'Hesham Haroon',    role: 'AI Team Lead | GenAI Specialist', url: 'https://www.linkedin.com/in/hesham-haroon/' },
             { name: 'Lamhot Siagian',   role: 'PhD Student | AI Engineer', url: 'https://www.linkedin.com/in/lamhotsiagian/' },
             { name: 'Chandra Sekhar',   role: 'AI Practitioner', url: 'https://www.linkedin.com/in/v-chandra-sekhar/' },
-            { name: 'Hesham Haroon',    role: 'AI Team Lead | GenAI Specialist', url: 'https://www.linkedin.com/in/hesham-haroon/' },
         ];
 
         return `

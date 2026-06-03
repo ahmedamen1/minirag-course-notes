@@ -503,25 +503,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Arrow keys → prev / next section (when not in input)
+        // Arrow keys → scroll within the current page
         if (document.activeElement === searchInput) return;
-        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        if (e.key === 'ArrowDown') {
             e.preventDefault();
-            navigateSection(1);
+            mainContent.scrollBy({ top: 120, behavior: 'smooth' });
         }
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        if (e.key === 'ArrowUp') {
             e.preventDefault();
-            navigateSection(-1);
+            mainContent.scrollBy({ top: -120, behavior: 'smooth' });
         }
     });
-
-    function navigateSection(delta) {
-        const idx = sections.findIndex(s => s.id === currentSectionId);
-        const next = sections[idx + delta];
-        if (!next) return;
-        window.history.pushState(null, null, `#${next.id}`);
-        renderContent(next.id);
-    }
 
     // ── Browser back/forward ──────────────────────────────────
     window.addEventListener('popstate', () => {

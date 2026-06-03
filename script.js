@@ -89,8 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Parse markdown into sections ──────────────────────────
     function parseMarkdown(markdown) {
+        // Before splitting, blank out ## headings inside fenced code blocks
+        // so they are never mistaken for real section boundaries.
+        const sanitized = markdown.replace(/```[\s\S]*?```/g, match =>
+            match.replace(/^## .+$/gm, '## [code-block-heading]')
+        );
+
         // Split on ## headings (top-level sections)
-        const rawSections = markdown.split(/\n(?=## )/);
+        const rawSections = sanitized.split(/\n(?=## )/);
 
         sections = rawSections.map((raw, idx) => {
             const lines = raw.split('\n');
@@ -110,7 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 .trim();
 
             return { id, title, content: raw, plainText };
-        }).filter(s => s.content.trim().length > 0);
+        }).filter(s =>
+            s.content.trim().length > 0 &&
+            // drop headings that were inside code fences (sanitized placeholders)
+            !/^\[code-block-heading\]$/i.test(s.title) &&
+            // drop bare single-word sections with no emoji that are clearly README artifacts
+            !/^(features|tech stack|setup|running the app)$/i.test(s.title)
+        );
 
         renderSidebar();
 
@@ -148,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Grouped nav (no filter)
         const groups = [
-            { label: 'Getting Started', key: 'start',    match: s => /^(overview|introduction|table of contents|contributors)/i.test(s.title) },
+            { label: 'Getting Started', key: 'start',    match: s => /^(overview|introduction|table of contents|contributors|project features)/i.test(s.title) },
             { label: 'Course Videos',   key: 'videos',   match: s => /video\s*\d|videos\s*\d/i.test(s.title) },
-            { label: 'Checkpoints',     key: 'check',    match: s => /checkpoint|video links|course complete|knowledge base complete/i.test(s.title) },
+            { label: 'Checkpoints',     key: 'check',    match: s => /checkpoint|video links|course complete|knowledge base complete|what.s missing/i.test(s.title) },
             { label: 'Advanced Topics', key: 'advanced', match: s => /advanced topic/i.test(s.title) },
             { label: 'Reference Guides',key: 'ref',      match: s => /chatbot production guide|rag architectures|ai design patterns|generative ai interview|level \d/i.test(s.title) },
             { label: 'Production',      key: 'prod',     match: s => /cheatsheet|best practices/i.test(s.title) },

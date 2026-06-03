@@ -552,18 +552,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         return `
+        <!-- ── Hero ─────────────────────────────── -->
         <div class="ov-hero">
             <div class="ov-hero-icon">📚</div>
             <h1 class="ov-hero-title">MiniRAG Course Notes</h1>
             <p class="ov-hero-sub">A comprehensive, interactive knowledge base covering RAG systems — from fundamentals to production-ready deployment.</p>
-
-            <div class="ov-credits">
-                <span>Based on <a href="https://github.com/bakrianoo/mini-rag" target="_blank">MiniRAG Course</a> by <strong>Abu Bakr Soliman</strong></span>
-                <span class="ov-credits-sep">·</span>
-                <span>Notes by <a href="https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar" target="_blank">Ahmed Amin</a></span>
-                <span class="ov-credits-sep">·</span>
-                <span>AI Engineer @ Takhaial</span>
-            </div>
 
             <div class="ov-stats">
                 <div class="ov-stat"><span class="ov-stat-n">25</span><span class="ov-stat-l">Course Videos</span></div>
@@ -579,6 +572,77 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         </div>
 
+        <!-- ── Learner Card ──────────────────────── -->
+        <div class="ov-learner-card">
+            <div class="ov-learner-left">
+                <div class="ov-learner-avatar">أ</div>
+                <div class="ov-learner-info">
+                    <span class="ov-learner-name">Ahmed Amin</span>
+                    <span class="ov-learner-role">AI Engineer @ Takhaial</span>
+                    <a href="mailto:ahmed.m.amin2003@gmail.com" class="ov-learner-email">ahmed.m.amin2003@gmail.com</a>
+                </div>
+            </div>
+            <div class="ov-learner-meta">
+                <div class="ov-learner-meta-item">
+                    <span class="ov-learner-meta-label">Course</span>
+                    <span class="ov-learner-meta-value">MiniRAG YouTube Series</span>
+                </div>
+                <div class="ov-learner-meta-item">
+                    <span class="ov-learner-meta-label">Role</span>
+                    <span class="ov-learner-meta-value">Learner & Researcher</span>
+                </div>
+                <div class="ov-learner-meta-item">
+                    <span class="ov-learner-meta-label">Focus</span>
+                    <span class="ov-learner-meta-value">Production-ready RAG systems, architectural design, and deep conceptual understanding</span>
+                </div>
+                <a href="https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar" target="_blank" class="ov-learner-linkedin">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- ── Arabic Intro ──────────────────────── -->
+        <div class="ov-arabic-card" dir="rtl" lang="ar">
+            <div class="ov-arabic-header">
+                <span class="ov-arabic-flag">🇪🇬</span>
+                <h2 class="ov-arabic-title">مرحباً بيك في نوتس MiniRAG</h2>
+            </div>
+            <p class="ov-arabic-body">
+                الملف ده هو مذكرات شاملة بنيتها وأنا بدرس كورس MiniRAG بتاع <strong>أبو بكر سليمان</strong> — كورس عربي بيشرح إزاي تبني نظام RAG من الصفر لحد production.
+            </p>
+            <p class="ov-arabic-body">
+                المذكرات مش مجرد ملخص للفيديوهات. كل سيكشن فيه شرح أعمق، أسئلة اتسألتها وأنا بشتغل، وكود production من تجربتي الشخصية كـ AI Engineer في تخيال.
+            </p>
+            <div class="ov-arabic-sections">
+                <div class="ov-arabic-section-item">
+                    <span class="ov-arabic-section-icon">🎬</span>
+                    <div>
+                        <strong>25 فيديو</strong>
+                        <span>شرح كامل من الإعداد للـ deployment</span>
+                    </div>
+                </div>
+                <div class="ov-arabic-section-item">
+                    <span class="ov-arabic-section-icon">🧠</span>
+                    <div>
+                        <strong>23 Advanced Topic</strong>
+                        <span>تقنيات متقدمة زي Hybrid Search وAgentic RAG وGraphRAG</span>
+                    </div>
+                </div>
+                <div class="ov-arabic-section-item">
+                    <span class="ov-arabic-section-icon">📚</span>
+                    <div>
+                        <strong>4 Reference Guides</strong>
+                        <span>من Hesham Haroon وLamhot Siagian وChandra Sekhar</span>
+                    </div>
+                </div>
+            </div>
+            <p class="ov-arabic-note">
+                💡 <em>الكورس بالعربي — المذكرات بالإنجليزي عشان تفيد أكبر عدد ممكن من الناس.</em>
+            </p>
+        </div>
+
+        <!-- ── Contributors ──────────────────────── -->
         <div class="ov-contributors">
             <h2>Contributors & Authors</h2>
             <div class="ov-contributor-grid">

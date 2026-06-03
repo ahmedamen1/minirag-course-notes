@@ -822,4 +822,170 @@ body {
     .ov-quick { flex-direction: column; align-items: center; }
     .ov-cards { grid-template-columns: 1fr; }
     .ov-contributor-grid { grid-template-columns: 1fr 1fr; }
+    .ov-learner-card { flex-direction: column; gap: 16px; }
+    .ov-learner-meta { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 16px; }
+}
+
+/* ── Learner Card ───────────────────────────── */
+.ov-learner-card {
+    display: flex;
+    gap: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+}
+
+.ov-learner-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.ov-learner-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #6e40c9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.ov-learner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.ov-learner-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+.ov-learner-role {
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+.ov-learner-email {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-decoration: none;
+}
+.ov-learner-email:hover { color: var(--accent); text-decoration: underline; }
+
+.ov-learner-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-left: 1px solid var(--border);
+    padding-left: 24px;
+}
+
+.ov-learner-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.ov-learner-meta-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-sub);
+}
+.ov-learner-meta-value {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.ov-learner-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #0a66c2;
+    text-decoration: none;
+    margin-top: 2px;
+    width: fit-content;
+}
+.ov-learner-linkedin:hover { text-decoration: underline; }
+[data-theme="dark"] .ov-learner-linkedin { color: #58a6ff; }
+
+/* ── Arabic Intro Card ──────────────────────── */
+.ov-arabic-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-right: 4px solid #16a34a;
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    font-family: 'Segoe UI', 'Cairo', 'Noto Sans Arabic', Arial, sans-serif;
+}
+
+.ov-arabic-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.ov-arabic-flag { font-size: 1.5rem; }
+.ov-arabic-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    border: none;
+    padding: 0;
+    letter-spacing: 0;
+}
+
+.ov-arabic-body {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.ov-arabic-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 14px 0;
+}
+
+.ov-arabic-section-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-main);
+    line-height: 1.5;
+}
+.ov-arabic-section-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+.ov-arabic-section-item strong { color: var(--accent); margin-left: 4px; }
+.ov-arabic-section-item span { color: var(--text-muted); margin-right: 6px; }
+
+.ov-arabic-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    line-height: 1.7;
 }

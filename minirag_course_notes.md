@@ -49,6 +49,17 @@ This document is a collaborative knowledge base drawing from the work of multipl
 
 ---
 
+### 🛠️ Project at a Glance
+
+| What | Details |
+|------|---------|
+| **What it builds** | Production-ready RAG chatbot over your own documents |
+| **Key features** | File upload, semantic search, LLM Q&A, swappable providers |
+| **Tech stack** | FastAPI · MongoDB/PostgreSQL · PgVector · Docker · Celery · Ollama |
+| **Outcome** | A deployable, monitored, async-capable RAG system |
+
+---
+
 ### 🗺️ Full Course Curriculum (25 Videos)
 
 | # | Topic | What It Covers |
@@ -145,6 +156,44 @@ Throughout this course, you will work hands-on with a modern, production-grade t
 **Grafana and Prometheus** round out the stack with monitoring and observability, covering how to track system health and performance in a live production environment.
 
 ---
+
+
+## 🛠️ Project Features & Tech Stack
+
+### What MiniRAG Does
+- Document upload and processing (PDF, TXT)
+- Semantic search with vector embeddings
+- LLM-powered Q&A grounded in your documents
+- Swappable LLM and vector DB providers via factory pattern
+
+### Full Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| API Framework | FastAPI + Uvicorn |
+| Databases | MongoDB → PostgreSQL |
+| Vector Search | PgVector (PostgreSQL extension) |
+| Containerization | Docker + Docker Compose |
+| ORM & Migrations | SQLAlchemy + Alembic |
+| Async Tasks | Celery + Flower |
+| Local LLMs | Ollama |
+| Cloud LLMs | OpenAI-compatible APIs |
+| Monitoring | Grafana + Prometheus |
+
+### Quick Start
+```bash
+git clone https://github.com/bakrianoo/mini-rag.git
+cd mini-rag
+
+conda create -n mini-rag python=3.10
+conda activate mini-rag
+
+pip install -r requirements.txt
+cp .env.example .env        # fill in your API keys
+
+docker compose up -d        # start MongoDB, Redis, etc.
+uvicorn main:app --reload   # start the API — docs at localhost:8000/docs
+```
 
 ---
 
@@ -11943,7 +11992,6 @@ Flower (Celery monitor) → Node Exporter (server health)
 
 ---
 
----
 
 ## 🎬 Video Links — Full Course Playlist
 
@@ -11978,14 +12026,6 @@ Flower (Celery monitor) → Node Exporter (server health)
 | 25 | Celery Workers 2/2 | [▶ Playlist](https://www.youtube.com/playlist?list=PLvLvlVqNQGHCUR2p0b8a0QpVjDUg50wQj) | — |
 
 > 💡 **For videos 21–25 without direct links:** open the full playlist and navigate to the video by index. All confirmed links above are sourced from the official GitHub README.
-
----
-
----
-
-# Part II — Advanced Topics
-
-> *The MiniRAG course builds a solid production-grade RAG foundation across 25 videos. The sections below go beyond the course — they cover the techniques, patterns, and production considerations that separate a working RAG system from a great one. All content here is drawn from Ahmed Amin's research and hands-on experience as an AI Engineer at Takhaial, supplemented by external study and references.*
 
 ---
 
@@ -12116,6 +12156,15 @@ This is the most commonly skipped topic and the most important for production sy
 | Jerry Liu (LlamaIndex CEO) on RAG | Building production RAG | YouTube / Twitter |
 | Pinecone Learn | Vector database and RAG tutorials | [learn.pinecone.io](https://learn.pinecone.io) |
 | Weaviate Academy | Hybrid search and advanced retrieval | [weaviate.io/learn](https://weaviate.io/learn) |
+
+---
+
+
+---
+
+# Part II — Advanced Topics
+
+> *The MiniRAG course builds a solid production-grade RAG foundation across 25 videos. The sections below go beyond the course — they cover the techniques, patterns, and production considerations that separate a working RAG system from a great one. All content here is drawn from Ahmed Amin's research and hands-on experience as an AI Engineer at Takhaial, supplemented by external study and references.*
 
 ---
 
@@ -23573,7 +23622,6 @@ PART III — Reference Guides:
 
 ---
 
----
 
 ## 🧠 Advanced Topic 10 — Embedding Models Deep Dive
 

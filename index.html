@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniRAG Course Notes</title>
+    <meta name="description" content="Comprehensive interactive notes for the MiniRAG course — RAG systems from fundamentals to production-ready deployment.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Highlight.js — theme swapped dynamically for dark mode -->
+    <link id="hljs-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css?v=5">
+</head>
+<body>
+    <!-- Reading progress bar -->
+    <div id="progress-bar"></div>
+
+    <div id="app">
+
+        <!-- ── Sidebar ────────────────────────────────────── -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-brand">
+                    <span class="sidebar-brand-icon">📚</span>
+                    <div class="sidebar-brand-text">
+                        <h1>MiniRAG</h1>
+                        <p>Course Notes</p>
+                    </div>
+                </div>
+                <button id="theme-toggle" title="Toggle dark/light mode" aria-label="Toggle theme">🌙</button>
+            </div>
+
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Search sections..." autocomplete="off" spellcheck="false">
+                <div class="search-mode-label">Press Enter for full-text search</div>
+            </div>
+
+            <ul id="nav-links">
+                <li class="loading-item" style="padding:12px 10px;color:var(--text-muted);font-size:.85rem">Loading chapters...</li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <span><kbd class="kbd">/</kbd> Search &nbsp; <kbd class="kbd">←</kbd><kbd class="kbd">→</kbd> Navigate</span>
+                <span><kbd class="kbd">Esc</kbd> Clear</span>
+            </div>
+        </nav>
+
+        <!-- ── Main Content ───────────────────────────────── -->
+        <main id="main-content">
+
+            <!-- Sticky top bar -->
+            <div id="top-bar">
+                <button id="mobile-menu-btn" aria-label="Toggle menu">
+                    <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+                <div id="breadcrumb">MiniRAG Course Notes</div>
+                <div id="section-counter"></div>
+            </div>
+
+            <!-- Content + in-page TOC -->
+            <div id="content-wrapper">
+                <div id="content-container">
+                    <!-- Parsed markdown injected here -->
+                </div>
+                <aside id="page-toc">
+                    <!-- In-page TOC injected here -->
+                </aside>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+    <!-- App -->
+    <script src="script.js?v=5"></script>
+</body>
+</html>

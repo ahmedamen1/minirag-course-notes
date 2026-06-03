@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Grouped nav (no filter)
         const groups = [
-            { label: 'Getting Started', key: 'start',    match: s => /^(overview|introduction|table of contents|contributors|project features)/i.test(s.title) },
+            { label: 'Getting Started', key: 'start',    match: s => /overview|introduction|table of contents|contributors|project features|tech stack/i.test(s.title) },
             { label: 'Course Videos',   key: 'videos',   match: s => /video\s*\d|videos\s*\d/i.test(s.title) },
             { label: 'Checkpoints',     key: 'check',    match: s => /checkpoint|video links|course complete|knowledge base complete|what.s missing/i.test(s.title) },
             { label: 'Advanced Topics', key: 'advanced', match: s => /advanced topic/i.test(s.title) },

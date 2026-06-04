@@ -17617,6 +17617,7 @@ class OutputValidator:
             "warnings": [],
             "answer": answer
         }
+```
 
 ---
 
@@ -19939,6 +19940,7 @@ Training smaller model to mimic larger model's outputs. Create efficient models 
 
 *Guide created by [Hesham Haroon](https://linkedin.com/in/hesham-haroon) — AI Team Lead | GenAI & Arabic NLP Specialist*
 
+```python
         # Check 1 — Length
         length_ok, length_msg = self.check_answer_length(answer)
         if not length_ok:

@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const videos      = nonOv.filter(s => /video\s*\d|videos\s*\d/i.test(s.title));
         const checkpoints = nonOv.filter(s => /checkpoint|video links|course complete|knowledge base complete/i.test(s.title));
         const advanced    = nonOv.filter(s => /advanced topic/i.test(s.title));
-        const reference   = nonOv.filter(s => /chatbot production guide|rag architectures|ai design patterns|generative ai interview/i.test(s.title));
+        const reference   = nonOv.filter(s => /chatbot production guide|rag architectures|ai design patterns|top ten ai design|generative ai interview/i.test(s.title));
         const cheatsheet  = nonOv.filter(s => /cheatsheet|best practices/i.test(s.title));
 
         const card = sec => `
@@ -560,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: 'Ahmed Amin',       role: 'AI Engineer @ Takhaial', url: 'https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar' },
             { name: 'Hesham Haroon',    role: 'AI Team Lead | GenAI Specialist', url: 'https://www.linkedin.com/in/hesham-haroon/' },
             { name: 'Lamhot Siagian',   role: 'PhD Student | AI Engineer', url: 'https://www.linkedin.com/in/lamhotsiagian/' },
-            { name: 'Chandra Sekhar',   role: 'AI Practitioner', url: 'https://www.linkedin.com/in/v-chandra-sekhar/' },
+            { name: 'AI Practitioner',  role: 'Top Ten AI Design Patterns', url: '' },
         ];
 
         return `
@@ -609,11 +609,15 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="ov-contributors">
             <h2>Contributors & Authors</h2>
             <div class="ov-contributor-grid">
-                ${contributors.map(c => `
-                    <a href="${c.url}" target="_blank" class="ov-contributor-card">
+                ${contributors.map(c => c.url
+                    ? `<a href="${c.url}" target="_blank" class="ov-contributor-card">
                         <span class="ov-contributor-name">${c.name}</span>
                         <span class="ov-contributor-role">${c.role}</span>
-                    </a>`).join('')}
+                    </a>`
+                    : `<div class="ov-contributor-card">
+                        <span class="ov-contributor-name">${c.name}</span>
+                        <span class="ov-contributor-role">${c.role}</span>
+                    </div>`).join('')}
             </div>
         </div>
 

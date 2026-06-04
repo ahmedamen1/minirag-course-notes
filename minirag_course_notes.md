@@ -32,7 +32,7 @@ This document is a collaborative knowledge base drawing from the work of multipl
 | [Abu Bakr Soliman (bakrianoo)](https://www.linkedin.com/in/bakrianoo/) | AI Engineer & Course Instructor | Core course content: all video notes, code walkthroughs, RAG architecture, FastAPI implementation, Docker setup, vector DB integration, Celery workers, and deployment — the foundational backbone of this entire document |
 | [Hesham Haroon](https://www.linkedin.com/in/hesham-haroon/) | AI Team Lead \| GenAI & Arabic NLP Specialist | **Generative AI Interview Guide** — 200 Q&A across Beginner → Expert levels covering LLMs, embeddings, RAG, fine-tuning, agents, production deployment, and system design |
 | [Lamhot Siagian](https://www.linkedin.com/in/lamhotsiagian/) | PhD Student \| AI Evaluation Engineer \| AI Engineer | **RAG Architectures for AI Engineers** — interview questions & implementation cheatsheets covering 8 RAG architectures (Naive, Multimodal, HyDE, Corrective, Graph, Hybrid, Adaptive, Agentic) with pseudocode, Q&A, and cheatsheets |
-| [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/) | AI Practitioner | **Top Ten AI Design Patterns** — practical architectural patterns for building real AI systems, with Python examples and decision guides |
+| AI Practitioner | — | **Top Ten AI Design Patterns** — practical architectural patterns for building real AI systems, with Python examples and decision guides |
 | [Ahmed Amin](https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar) | AI Engineer @ Takhaial | Deep-dive research, follow-up questions, conceptual expansions, and real-world production insights drawn from hands-on work — woven throughout all sections of this document. Author of the **AI Chatbot Production Guide** (RAG cost optimization, semantic caching, intelligent routing, Arabic AI, and provider pricing) |
 
 ---
@@ -132,7 +132,7 @@ This document is a collaborative knowledge base drawing from the work of multipl
 |---------|--------|---------------|
 | AI Chatbot Production Guide | [Ahmed Amin](https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar) | Semantic caching, LLM routing, pricing tables, Arabic AI, cost checklist |
 | RAG Architectures for AI Engineers | [Lamhot Siagian](https://www.linkedin.com/in/lamhotsiagian/) | 8 RAG architectures with Q&A, pseudocode, and interview cheatsheets |
-| Top Ten AI Design Patterns | [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/) | 10 LLM architecture patterns with Python examples and decision guide |
+| Top Ten AI Design Patterns | — | 10 LLM architecture patterns with Python examples and decision guide |
 | Generative AI Interview Guide | [Hesham Haroon](https://www.linkedin.com/in/hesham-haroon/) | 200 Q&As from Beginner to Expert covering the full GenAI stack |
 
 ---
@@ -18567,7 +18567,7 @@ return llm.generate(build_prompt(query, state["evidence"], require_citations=Tru
 
 ## 🏗️ Top Ten AI Design Patterns
 
-> **Prepared by:** [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/) — *The Definitive Guide: Lessons Learned from Real AI Implementations*
+> **Prepared by:** An AI Practitioner — *The Definitive Guide: Lessons Learned from Real AI Implementations*
 >
 > A practical reference of the 10 most important architectural patterns for building AI systems — each with a clear use case, a guiding principle, and a Python example. These patterns map directly to the architectural decisions you will face when building production RAG and LLM applications like MiniRAG.
 
@@ -18838,7 +18838,7 @@ execute(action)
 
 ---
 
-*Guide prepared by [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/)*
+*Guide prepared by an AI Practitioner*
 
 ---
 
@@ -26400,7 +26400,7 @@ The content here is drawn from multiple sources — a YouTube course, external g
 ### Attribution
 
 - Course content is based on the **MiniRAG YouTube series** by [Abu Bakr Soliman](https://www.linkedin.com/in/bakrianoo/) and is credited accordingly.
-- Reference guide sections are authored by [Hesham Haroon](https://www.linkedin.com/in/hesham-haroon/), [Lamhot Siagian](https://www.linkedin.com/in/lamhotsiagian/), and [Chandra Sekhar](https://www.linkedin.com/in/v-chandra-sekhar/) — all rights remain with the original authors.
+- Reference guide sections are authored by [Hesham Haroon](https://www.linkedin.com/in/hesham-haroon/), [Lamhot Siagian](https://www.linkedin.com/in/lamhotsiagian/), and an AI Practitioner — all rights remain with the original authors.
 - Research notes and advanced topic expansions were written by [Ahmed Amin](https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar) based on personal study and professional experience at Takhaial.
 
 ### Not Professional Advice

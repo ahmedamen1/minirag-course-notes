@@ -560,7 +560,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: 'Ahmed Amin',       role: 'AI Engineer @ Takhaial', url: 'https://www.linkedin.com/in/ahmed-amin-47196321a/?locale=ar' },
             { name: 'Hesham Haroon',    role: 'AI Team Lead | GenAI Specialist', url: 'https://www.linkedin.com/in/hesham-haroon/' },
             { name: 'Lamhot Siagian',   role: 'PhD Student | AI Engineer', url: 'https://www.linkedin.com/in/lamhotsiagian/' },
-            { name: 'AI Practitioner',  role: 'Top Ten AI Design Patterns', url: '' },
         ];
 
         return `
